@@ -5,8 +5,7 @@ package enmus;
  * @date 2020-06-28
  * @description
  */
-public enum Color
-{
+public enum Color {
     RED, GREEN, BLUE;
 }
 
