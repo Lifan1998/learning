@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6869472-100e-4062-bd51-f0cb083e40db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/serialization/DeserializeDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/serialization/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/serialization/SerializeDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/enmus/BizType.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/enmus/BizType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/enmus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/enmus/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/target/classes/enmus/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/target/classes/enmus/Color.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/target/classes/enmus/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/target/classes/enmus/Test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/DeserializeDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+            <state relative-caret-position="298">
+              <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -62,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+            <state relative-caret-position="304">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -387,18 +379,18 @@
       <workItem from="1595422277994" duration="1421000" />
       <workItem from="1595470834757" duration="1402000" />
       <workItem from="1595496096956" duration="5031000" />
-      <workItem from="1595917703330" duration="2058000" />
+      <workItem from="1595917703330" duration="5748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23646000" />
+    <option name="totallyTimeSpent" value="27336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2048" y="-816" width="2048" height="1152" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19641076" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19641076" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -409,7 +401,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32532346" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32532346" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -417,7 +409,7 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
       <window_info anchor="bottom" id="Tail" order="8" weight="0.32994455" />
       <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32994455" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32994455" />
       <window_info anchor="bottom" id="Docker" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Run with VisualVM" order="13" />
@@ -614,8 +606,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="304">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -628,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/DeserializeDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        <state relative-caret-position="298">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
         </state>
       </provider>
     </entry>
