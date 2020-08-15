@@ -8,7 +8,8 @@ package enmus;
 public enum BizType {
     TYPE1(1, "类型1"),
     TYPE2(2, "类型2"),
-    TYPE3(3, "类型3");
+    TYPE3(3, "类型3"),
+    TYPE4(4, "类型4");
     int value;
     String desc;
 
