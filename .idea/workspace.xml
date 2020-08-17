@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6869472-100e-4062-bd51-f0cb083e40db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/enmus/BizType.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/enmus/BizType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/serialization/DeserializeDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/serialization/SerializeDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/serialization/SerializeDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/target/classes/enmus/BizType.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/target/classes/enmus/BizType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/target/classes/serialization/DeserializeDemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/target/classes/serialization/SerializeDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/target/classes/serialization/SerializeDemo.class" afterDir="false" />
-    </list>
+    <list default="true" id="d6869472-100e-4062-bd51-f0cb083e40db" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/spring/target/" />
@@ -38,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/SerializeDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            <state relative-caret-position="298">
+              <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -385,15 +377,16 @@
       <workItem from="1595470834757" duration="1402000" />
       <workItem from="1595496096956" duration="5031000" />
       <workItem from="1595917703330" duration="5748000" />
-      <workItem from="1597460516542" duration="5357000" />
+      <workItem from="1597460516542" duration="5800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32693000" />
+    <option name="totallyTimeSpent" value="33136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2048" y="-816" width="2048" height="1152" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19840479" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -628,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java/src/main/java/serialization/SerializeDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        <state relative-caret-position="298">
+          <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
