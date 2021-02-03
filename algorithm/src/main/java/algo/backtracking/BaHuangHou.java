@@ -1,5 +1,6 @@
 package algo.backtracking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,14 +47,80 @@ public class BaHuangHou {
      * 回溯：
      * 1. 先放第一个棋子
      * 2. 再放下一个棋子
-     * 3. 判断这个棋子十字线和对角线没有其他的棋子
+     * 3. 判断这个棋子十字线和对角线没有其他的棋子(ps: 是不是只需要判断当前棋子和上一个棋子是否符合条件就行了？)
+     * 4. 有的话换一个，没有的话继续
+     *
+     * ps：
+     * 两个难点，一个是回溯终止条件，使用递归来实现，一个是递归的数据处理
      */
     static class Solution {
+
         public List<List<String>> solveNQueens(int n) {
             // n * n 棋盘
             int[][] a = new int[n][n];
 
+            // 放置第一行
+            put(a, 0);
             return null;
+        }
+
+        /**
+         * 获取第n行放置有几个可能的结果
+         * @param a 已经放好的棋子
+         * @param n
+         * @return
+         */
+        private List<String> put(int[][] a, int n) {
+            if (n == a.length) {
+                return null;
+            }
+            List<String> result = new ArrayList<String>();
+
+            // 列
+            for (int j = 0; j < a.length; j++) {
+                // 判断这个位置符不符合要求
+                if (isTrue(a, n, j)) {
+                    a[n][j] = 1;
+                    // 获得一种结果
+                    result.add("");
+                    // 符合的话就开始放下一个行
+                    put(a, n + 1);
+                }
+                // 尝试下一列放置
+            }
+
+            return result;
+        }
+
+
+        /**
+         * 判断放置于row行cul列的棋子是否符合条件
+         * @return
+         */
+        private boolean isTrue(int [][] a, int row, int cul) {
+
+            for (int i = 0; i < a.length; i++) {
+                for (int j = 0; j < a.length; j++) {
+                    int tmp = a[i][j];
+                    // 为1时是棋子
+                    if (tmp == 1) {
+                        // 如果棋子在对角线上，必满足 两个棋子行距与列距相等，反之亦然
+                        if (Math.abs(row - i) == Math.abs(cul - i)) {
+                            return false;
+                        }
+                        // 同行
+                        if (i == row) {
+                            return false;
+                        }
+                        // 同列
+                        if (j == cul) {
+                            return false;
+                        }
+
+                    }
+                }
+            }
+            return true;
         }
     }
 }
