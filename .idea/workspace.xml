@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6869472-100e-4062-bd51-f0cb083e40db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithm/src/main/java/algo/backtracking/BaHuangHou.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm/src/main/java/algo/backtracking/BaHuangHou.java" afterDir="false" />
-    </list>
+    <list default="true" id="d6869472-100e-4062-bd51-f0cb083e40db" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/spring/target/" />
@@ -58,7 +55,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/algorithm/src/main/java/algo/backtracking/BaHuangHou.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
+            <state relative-caret-position="366">
               <caret line="91" column="26" lean-forward="true" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -194,6 +191,11 @@
             </path>
             <path>
               <item name="learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learning" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -218,6 +220,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
+    </key>
   </component>
   <component name="RestServicesNavigator">
     <treeState>
@@ -333,17 +340,18 @@
       <workItem from="1598755450016" duration="1268000" />
       <workItem from="1610005473594" duration="15953000" />
       <workItem from="1610594998877" duration="17800000" />
-      <workItem from="1612345863335" duration="321000" />
+      <workItem from="1612345863335" duration="903000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69278000" />
+    <option name="totallyTimeSpent" value="69860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2048" y="-816" width="2048" height="1152" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20787637" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20787637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -362,7 +370,7 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
       <window_info anchor="bottom" id="Tail" order="8" weight="0.32994455" />
       <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38170055" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38170055" />
       <window_info anchor="bottom" id="Docker" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Run with VisualVM" order="13" />
@@ -587,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/algorithm/src/main/java/algo/backtracking/BaHuangHou.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
+        <state relative-caret-position="366">
           <caret line="91" column="26" lean-forward="true" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
