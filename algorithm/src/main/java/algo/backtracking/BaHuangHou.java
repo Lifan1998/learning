@@ -59,6 +59,9 @@ public class BaHuangHou {
             // n * n 棋盘
             int[][] a = new int[n][n];
 
+            // 存储最终结果
+            List<String> finalResult = new ArrayList<String>();
+
             // 放置第一行
             put(a, 0);
             return null;
@@ -70,7 +73,7 @@ public class BaHuangHou {
          * @param n
          * @return
          */
-        private List<String> put(int[][] a, int n) {
+        private void put(int[][] a, int n) {
             if (n == a.length) {
                 return null;
             }
@@ -81,6 +84,10 @@ public class BaHuangHou {
                 // 判断这个位置符不符合要求
                 if (isTrue(a, n, j)) {
                     a[n][j] = 1;
+
+                    // 转化字符串
+
+
                     // 获得一种结果
                     result.add("");
                     // 符合的话就开始放下一个行
@@ -89,6 +96,30 @@ public class BaHuangHou {
                 // 尝试下一列放置
             }
 
+            return result;
+        }
+
+
+        /**
+         * 数据转字符串
+         * @param a
+         * @return
+         */
+        private List<List<String>> toStringArray(int[][] a) {
+            List<List<String>> result = new ArrayList<List<String>>();
+
+            for (int i = 0; i < a.length; i++) {
+                List<String> row = new ArrayList<String>();
+                for (int j = 0; j < a[i].length; j++) {
+
+                    if (a[i][j] == 0) {
+                        row.add("-");
+                    } else {
+                        row.add("*");
+                    }
+                }
+                result.add(row);
+            }
             return result;
         }
 
