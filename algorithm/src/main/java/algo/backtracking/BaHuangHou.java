@@ -40,7 +40,7 @@ import java.util.List;
 public class BaHuangHou {
 
     public static void main(String[] args) {
-
+        new Solution().solveNQueens(8);
     }
 
     /**
@@ -56,7 +56,7 @@ public class BaHuangHou {
     static class Solution {
 
         public List<List<String>> solveNQueens(int n) {
-            // n * n 棋盘
+            // n * n 棋盘，有棋子则值为1
             int[][] a = new int[n][n];
 
             // 存储最终结果
@@ -64,7 +64,7 @@ public class BaHuangHou {
 
             // 放置第一行
             put(a, 0);
-            return null;
+            return finalResult;
         }
 
         /**
@@ -75,7 +75,7 @@ public class BaHuangHou {
          */
         private void put(int[][] a, int n) {
             if (n == a.length) {
-                return null;
+                return;
             }
             List<String> result = new ArrayList<String>();
 
@@ -152,6 +152,16 @@ public class BaHuangHou {
                 }
             }
             return true;
+        }
+
+
+        private void print(List<List<String>> result) {
+            for (int i = 0; i < result.size(); i++) {
+                for (int j = 0; j < result.get(i).size(); j++) {
+                    System.out.print(result.get(i).get(j));
+                }
+                System.out.println("");
+            }
         }
     }
 }
