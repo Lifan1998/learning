@@ -64,7 +64,7 @@ public class BaHuangHou {
 
             // 放置第一行
             put(a, 0);
-            return finalResult;
+            return new ArrayList<List<String>>();
         }
 
         /**
@@ -95,8 +95,6 @@ public class BaHuangHou {
                 }
                 // 尝试下一列放置
             }
-
-            return result;
         }
 
 
