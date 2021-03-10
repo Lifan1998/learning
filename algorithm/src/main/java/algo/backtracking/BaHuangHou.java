@@ -1,7 +1,13 @@
 package algo.backtracking;
 
+import com.oracle.javafx.jmx.json.JSONReader;
+import jdk.nashorn.internal.parser.JSONParser;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author fan.li
@@ -40,7 +46,8 @@ import java.util.List;
 public class BaHuangHou {
 
     public static void main(String[] args) {
-        new Solution().solveNQueens(8);
+        List<List<String>> nQueens = new Solution().solveNQueens(4);
+        Solution.print(nQueens);
     }
 
     /**
@@ -54,69 +61,64 @@ public class BaHuangHou {
      * 两个难点，一个是回溯终止条件，使用递归来实现，一个是递归的数据处理
      */
     static class Solution {
+        List<List<String>> finalResult = new ArrayList<List<String>>();
 
         public List<List<String>> solveNQueens(int n) {
             // n * n 棋盘，有棋子则值为1
+            // TODO: 改为一维数组，能极大提高效率
             int[][] a = new int[n][n];
-
-            // 存储最终结果
-            List<String> finalResult = new ArrayList<String>();
-
             // 放置第一行
             put(a, 0);
-            return new ArrayList<List<String>>();
+            return finalResult;
         }
 
         /**
+         * 传入一个已经放好的棋盘和下一个棋子
          * 获取第n行放置有几个可能的结果
          * @param a 已经放好的棋子
-         * @param n
+         * @param n 从0开始计数，其实是n+1行
          * @return
          */
         private void put(int[][] a, int n) {
+            // 棋子放完了，返回当前棋盘的结果
             if (n == a.length) {
-                return;
+                finalResult.add(toStringArray(a));
             }
-            List<String> result = new ArrayList<String>();
 
             // 列
             for (int j = 0; j < a.length; j++) {
                 // 判断这个位置符不符合要求
                 if (isTrue(a, n, j)) {
-                    a[n][j] = 1;
-
-                    // 转化字符串
-
-
-                    // 获得一种结果
-                    result.add("");
+                    // 符合要求的话需要标记一下
+                    // 这里需要copy一个新数组
+                    int[][] a_ = Solution.deepCopy(a);
+                    a_[n][j] = 1;
                     // 符合的话就开始放下一个行
-                    put(a, n + 1);
+                    put(a_, n + 1);
                 }
-                // 尝试下一列放置
+                // 这个位置不太行，往右挪一挪放放看
             }
         }
 
-
         /**
-         * 数据转字符串
+         * 数组转字符串
          * @param a
          * @return
          */
-        private List<List<String>> toStringArray(int[][] a) {
-            List<List<String>> result = new ArrayList<List<String>>();
+        private List<String> toStringArray(int[][] a) {
+            List<String> result = new ArrayList<String>();
 
             for (int i = 0; i < a.length; i++) {
-                List<String> row = new ArrayList<String>();
+                String rowString = "";
                 for (int j = 0; j < a[i].length; j++) {
 
                     if (a[i][j] == 0) {
-                        row.add("-");
+                        rowString += ".";
                     } else {
-                        row.add("*");
+                        rowString += "Q";;
                     }
                 }
-                result.add(row);
+                result.add(rowString);
             }
             return result;
         }
@@ -124,6 +126,7 @@ public class BaHuangHou {
 
         /**
          * 判断放置于row行cul列的棋子是否符合条件
+         * TODO: 记录已存在棋子位置，直接判断
          * @return
          */
         private boolean isTrue(int [][] a, int row, int cul) {
@@ -132,16 +135,17 @@ public class BaHuangHou {
                 for (int j = 0; j < a.length; j++) {
                     int tmp = a[i][j];
                     // 为1时是棋子
+                    // [1,2] [2,1]
                     if (tmp == 1) {
                         // 如果棋子在对角线上，必满足 两个棋子行距与列距相等，反之亦然
-                        if (Math.abs(row - i) == Math.abs(cul - i)) {
+                        if (Math.abs(row - i) == Math.abs(cul - j)) {
                             return false;
                         }
-                        // 同行
+                        // 同行不行
                         if (i == row) {
                             return false;
                         }
-                        // 同列
+                        // 同列不行
                         if (j == cul) {
                             return false;
                         }
@@ -153,13 +157,21 @@ public class BaHuangHou {
         }
 
 
-        private void print(List<List<String>> result) {
-            for (int i = 0; i < result.size(); i++) {
-                for (int j = 0; j < result.get(i).size(); j++) {
-                    System.out.print(result.get(i).get(j));
+        public static void print(List<List<String>> result) {
+
+            String test = result.stream().map(list -> "[" + list.stream().map(s -> "\"" + s + "\"").collect(Collectors.joining(","))+ "]").collect(Collectors.joining(","));
+
+            System.out.print("[" + test + "]");
+        }
+
+        public static int[][] deepCopy(int[][] a) {
+            int[][] b = new int[a.length][a.length];
+            for (int i = 0; i < a.length; i++) {
+                for (int j = 0; j < a.length; j++) {
+                    b[i][j] = a[i][j];
                 }
-                System.out.println("");
             }
+            return b;
         }
     }
 }
