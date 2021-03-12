@@ -13,13 +13,16 @@ import java.util.Collections;
 public class ArraysCopy {
 
     public static void main(String[] args) {
-        testArrayClone();
-        testArrayClone0();
+//        testArrayClone();
+//        testArrayClone0();
+//        testArrayClone1();
+        testArrayClone2();
     }
 
 
     /**
-     *
+     * int数组
+     * 深拷贝
      */
     public static void testArrayClone() {
         int[] arr = new int[]{1,2,3,4};
@@ -38,6 +41,10 @@ public class ArraysCopy {
 
     }
 
+    /**
+     * 二维数组
+     * 第二维浅拷贝
+     */
     public static void testArrayClone0() {
         int[][] arr = new int[2][2];
         System.out.println(Arrays.deepToString(arr));
@@ -52,11 +59,66 @@ public class ArraysCopy {
         arr_[0][0] = 99;
         System.out.println(Arrays.deepToString(arr));
         System.out.println(Arrays.deepToString(arr_));
+    }
+
+    /**
+     * String 数组
+     * 深拷贝
+     */
+    public static void testArrayClone1() {
+        String[] arr = new String[]{"1","2","3","4"};
+        System.out.println(Arrays.toString(arr));
+        String[] arr_ = arr.clone();
+        System.out.println(Arrays.toString(arr_));
+        // 修改arr[0]的值
+        arr[0] = "99";
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr_));
+        arr[0] = "1";
+        // 修改arr_[0]的值
+        arr_[0] = "99";
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr_));
 
     }
 
 
 
+    /**
+     * Object 数组
+     * 浅拷贝
+     */
+    public static void testArrayClone2() {
+
+        Node[] arr = new Node[]{new Node(1), new Node(2),new Node(3), new Node(4)};
+        System.out.println(Arrays.toString(arr));
+        Node[] arr_ = arr.clone();
+        System.out.println(Arrays.toString(arr_));
+        // 修改arr[0]的值
+        arr[0].id = 99;
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr_));
+        arr[0].id = 1;
+        // 修改arr_[0]的值
+        arr_[0].id = 99;
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr_));
+
+    }
+
+
+    static class Node {
+        Integer id;
+
+        public Node(Integer id) {
+            this.id = id;
+        }
+
+        @Override
+        public String toString() {
+            return id + "";
+        }
+    }
 
 
 }

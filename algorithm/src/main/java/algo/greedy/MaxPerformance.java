@@ -1,4 +1,4 @@
-package algo.backtracking.greedy;
+package algo.greedy;
 
 import java.util.Arrays;
 
