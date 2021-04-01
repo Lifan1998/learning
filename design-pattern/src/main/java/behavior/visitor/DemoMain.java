@@ -9,7 +9,7 @@ package behavior.visitor;
 
 public class DemoMain {
     public static void main(String[] args) {
-        SingleDispatchClass demo = new SingleDispatchClass();
+        SingleDispatchClass0 demo = new SingleDispatchClass0();
         ParentClass p = new ChildClass();
         //执行哪个对象的方法，由对象的实际类型决定
         demo.polymorphismFunction(p);
@@ -46,4 +46,20 @@ class SingleDispatchClass {
         System.out.println("I am overloadFunction(ChildClass c).");
     }
 }
+
+class SingleDispatchClass0 {
+    public void polymorphismFunction(ParentClass p) {
+        p.f();
+    }
+
+    public void overloadFunction(ParentClass p) {
+        System.out.println("I am overloadFunction(ParentClass p).");
+        p.f();
+    }
+    public void overloadFunction(ChildClass c) {
+        System.out.println("I am overloadFunction(ChildClass p).");
+        c.f();
+    }
+}
+
 
