@@ -31,6 +31,9 @@ class ChildClass extends ParentClass {
     }
 }
 
+/**
+ * 单分派
+ */
 class SingleDispatchClass {
     public void polymorphismFunction(ParentClass p) {
         p.f();
