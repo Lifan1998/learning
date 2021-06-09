@@ -11,24 +11,24 @@ import java.util.*;
 public class MapForEachTest {
 
     public static void main(String[] args) {
-        HashMap<String, Integer> map0 = new HashMap<String, Integer>(100000);
+        HashMap<String, Integer> map0 = new HashMap<String, Integer>(1000000);
         HashMap<String, Integer> map1 = new HashMap<String, Integer>();
         initData(map0);
         initData(map1);
 
-//
-//        testIterator(map0);
-//        testIterator(map1);
-//        testFor(map0);
-//        testFor(map1);
 
-
-
+        testIterator(map0);
+        testIterator(map1);
+        testFor(map0);
+        testFor(map1);
 
         testMapForeach(map0);
         testMapForeach(map1);
         testMapStreamForeach(map0);
         testMapStreamForeach(map1);
+
+        testMapParallelStreamForeach(map0);
+        testMapParallelStreamForeach(map1);
 
 
     }
@@ -84,6 +84,18 @@ public class MapForEachTest {
         System.out.println("HashMap Size: " + map.size() +  " MapStreamForeach 耗时: " + (end - start) + " ms");
     }
 
+    private static void testMapParallelStreamForeach(HashMap map) {
+
+        long start = System.currentTimeMillis();
+
+        for (int i = 0; i < 100; i++) {
+            forEach2(map);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("");
+        System.out.println("HashMap Size: " + map.size() +  " MapParallelStreamForeach 耗时: " + (end - start) + " ms");
+    }
+
     private static void forEach(HashMap map) {
         for (Iterator<Map.Entry<String, Integer>> it = map.entrySet().iterator(); it.hasNext();){
             Map.Entry<String, Integer> item = it.next();
@@ -101,14 +113,21 @@ public class MapForEachTest {
 
     private static void forEach1(HashMap<String, Integer> map) {
         map.forEach((key, value) -> {
-            // System.out.print(key);
+            System.out.print(key);
         });
 
     }
 
     private static void forEach2(HashMap<String, Integer> map) {
         map.entrySet().stream().forEach(e -> {
-            // System.out.print(e.getKey());
+            System.out.print(e.getKey());
+        });
+
+    }
+
+    private static void forEach3(HashMap<String, Integer> map) {
+        map.entrySet().parallelStream().forEach(e -> {
+            System.out.print(e.getKey());
         });
 
     }
