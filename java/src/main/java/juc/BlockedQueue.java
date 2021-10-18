@@ -22,7 +22,6 @@ public class BlockedQueue<T> {
     final Condition notEmpty =
             lock.newCondition();
 
-
     private List<T> data;
     private Integer maxSize;
     public BlockedQueue(int size) {
@@ -34,12 +33,13 @@ public class BlockedQueue<T> {
     void enq(T x) {
         lock.lock();
         try {
+            // 如果阻塞队列是满了，真放不进了，咋办呢，等着呗，等有消费者消费了，我就有空间了
             while (data.size() >= maxSize){
-                // 等待队列不满
+                // 把这些放不进的生产者都聚集起来，等待通知
                 notFull.await();
             }
             // 省略入队操作...
-            //入队后,通知可出队
+            // 通知一下消费者去消费
             notEmpty.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -51,12 +51,14 @@ public class BlockedQueue<T> {
     void deq(){
         lock.lock();
         try {
+            // 如果阻塞队列是空的，把当前线程挂起，其实就是调用 notEmpty.await() 方法，这个方法会把线程挂起并放到一个线程队列里
             while (data.isEmpty()){
-                // 等待队列不空
+                // 消费不了，数据是空的，所以要等着，等着有生产者来唤醒我，但是我又不是在阻塞，所以我要自旋
                 notEmpty.await();
             }
             // 省略出队操作...
-            //出队后，通知可入队
+            // 如果不为空，那么就唤醒生产者线程去生产
+            // 告诉他阻塞队列有空间了，因为我刚才消费了一个，你们生产者可以放一个进去），当然，如果没有生产者在等待，也无所谓，白喊了而已
             notFull.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
