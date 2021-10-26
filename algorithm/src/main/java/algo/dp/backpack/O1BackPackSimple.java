@@ -16,6 +16,8 @@ public class O1BackPackSimple {
         Solution solution = new Solution();
         System.out.println(solution.maxWeight0(costs, 9));
 
+        System.out.println(solution.maxWeight1(costs, 9));
+
         Solution0  solution0 = new Solution0();
         solution0.f(0, 0);
         System.out.println(solution0.maxW);
@@ -72,6 +74,20 @@ public class O1BackPackSimple {
         }
 
         /**
+         * 来思考下 如何用回溯 + 深度优先搜索 + 记忆化 来推导 动态规划
+         * 回溯的时候我们提到最多计算 size * V 次，并用一个二维数组来表示，他的值为true表示被计算过
+         * 换个角度思考一下，他的值还代表另外一层含义，就是这个indexV是否是可达的，V是被计算出来的，index肯定都会有，所以可以表示 V 是否是可达的，也就代表了所有排列组合符合条件的重量
+         * 那么遍历这个二维数组，找到 v 最大且值为true的时候，也就是背包所能达到的最大值
+         * 所以回溯里面记录最大值的那个变量可以删掉
+         *
+         * 来用动态规划的角度思考下该问题：
+         *
+         * 转换下题目的问法，寻找满足重量限制的物品
+         *
+         *
+         *
+         * 1. 是否是无后效性的？选择了后面的重量，对前面选择的物品有没有影响？有，假如物品 【1，1，12】，背包容量 13，那么可以放入 【1，12】，但按序放的话放的只是【1，1】
+         *
          *
          * @param costs
          * @param V
@@ -79,19 +95,36 @@ public class O1BackPackSimple {
          */
         public int maxWeight1(int[] costs, int V) {
             // dp[i] 表示 当前重量为V的情况下是否可达（即是否存在能装到V的物品），如果可达的话那么肯定就可以了
-            boolean[] dp = new boolean[costs.length];
+            boolean[] dp = new boolean[V + 1];
+            dp[0] = true;
+            // 逐个放入物品，判断是否满足条件
             for(int i = 0; i < costs.length; i++) {
-                // 尝试在重量为j的时候放入第i个物品
-                for (int j = 0; j < V; j++) {
-                    if (dp[j] == false) {
-                        // 不可达
-                    } else {
+                // 尝试在重量为j的时候放入第i个物品，并记录所有可能达到的重量
+                // 遍历得来的是前i个商品所有可能的情况，类似递归树的第i层
 
+                // 下面处理放或者不放，不放的话完全不用处理，所以下面处理放的情况
+                for (int j = 0; j < V; j++) {
+
+                    if (dp[j] == true) {
+                        // 当前重量可达，尝试加我
+                        if (costs[i] + j <= V) {
+                            dp[j + costs[i]] = true;
+                        }
+                    } else {
+                        // 如果dp[j] == false, 说明这个前i个商品所有可能的情况没有j，那么可以判断 j - cost[i] 有没有可能，有的话加我就可以了
+                        if (j - costs[i] >= 0 && dp[j - costs[i]]) {
+                            dp[j] = true;
+                        }
                     }
+
                 }
             }
-
-            return 0;
+            for (int i = V; i >= 0; i--) {
+                if (dp[i] == true) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         /**
