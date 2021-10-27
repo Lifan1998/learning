@@ -1,5 +1,7 @@
 package algo.dp.backpack;
 
+import java.util.Arrays;
+
 /**
  * @author fan.li
  * @date 2021-10-25
@@ -28,48 +30,22 @@ public class O1BackPack {
 
 
     public static void main(String[] args) {
+        int[] costs = {2,2,4,6,3};
+        int[] weights = {2,2,4,6,3};
+        Solution solution = new Solution();
+        System.out.println(solution.maxValue(costs, weights, 9));
 
-    }
-
-
-
-    public static class Solution0 {
-
-        /**
-         *
-         * @param costs 物品要花费的重量
-         * @param weights 物品价值
-         * @param V 背包最大容量
-         * @return 最大价值
-         */
-        public int maxValue(int[] costs, int[] weights, int V) {
-
-            // 如果用状态来表示背包的话有三个变量 【前i个物品，当前重量，当前价值】
-
-            // dp[i]代表前i个物品的最大价值
-            int[] dp = new int[costs.length];
-            // dp[i]代表前i个物品的最小重量
-            int[] dp0 = new int[costs.length];
-            // 逐步放入商品
-            for(int i = 0; i < costs.length; i++) {
-                // 选择放还是不放
-                dp[i] = Math.max(
-                        // 选择不放
-                        dp[i-1],
-                        // 选择放，放的话要计算下重量符不符合规则，即有没有重量小于背包V，重量存哪呢
-                        dp[i-1] + weights[i]);
-            }
-
-            return 0;
-        }
     }
 
     public static class Solution {
 
         /**
          *
-         * @param costs 物品要花费的重量
-         * @param weights 物品价值
+         * 参考
+         * @see O1BackPackSimple
+         *
+         * @param costs 物品要花费的重量 要求必须大于0
+         * @param weights 物品价值 要求必须大于0
          * @param V 背包最大容量
          * @return 最大价值
          */
@@ -77,18 +53,34 @@ public class O1BackPack {
 
             // 如果用状态来表示背包的话有三个变量 【前i个物品，当前重量，当前价值】
 
-            // dp[i][j]代表前i个物品的最大价值，且当前重量是dp[j],dp[j]是用来核对是否符合条件的
-            int[][] dp = new int[costs.length][V];
+            // dp[i]代表重量为V的背包所能存储的最大价值，该数组表示的是某一阶段的状态，
+            int[] dp = new int[V + 1];
+            // dp = 0 表示该重量限制不可达
+            dp[0] = 0;
             // 逐步放入商品
             for(int i = 0; i < costs.length; i++) {
-                // 【不同重量下（其实这里就是限制条件，完整版可以是序列）】的最大价值
-                // 不存储重量大于V的情况
-                for(int j = 0; j < V; i++) {
-
+                // 处理这一阶段所能达到的重量枚举，并计算在该重量下的最大价值
+                for(int j = V; j >= 0; j--) {
+                    // 判断这个重量是否可达
+                    if (dp[j] == 0) {
+                        // 如果 这个重量不可达并且尝试的当前物品可以放进去（没有超限），那么就可以直接将物品放进去
+                        if (j - costs[i] == 0) {
+                            dp[j] = weights[i];
+                        }
+                        if (j - costs[i] > 0 && dp[j - costs[i]] > 0) {
+                            // 可达的话去计算下价值
+                            dp[j] = dp[j - costs[i]] + weights[i];
+                        }
+                    } else {
+                        // 如果当前重量已经有了，也可以比一比谁大
+                        if (j - costs[i] >= 0 && dp[j - costs[i]] > 0) {
+                            // 可达的话去计算下价值
+                            dp[j] = Math.max(dp[j - costs[i]] + weights[i], dp[j]);
+                        }
+                    }
                 }
             }
-
-            return 0;
+            return Arrays.stream(dp).max().getAsInt();
         }
     }
 }
