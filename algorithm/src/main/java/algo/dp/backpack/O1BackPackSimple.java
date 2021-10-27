@@ -103,23 +103,37 @@ public class O1BackPackSimple {
                 // 遍历得来的是前i个商品所有可能的情况，类似递归树的第i层
 
                 // 下面处理放或者不放，不放的话完全不用处理，所以下面处理放的情况
-                for (int j = 0; j < V; j++) {
-
-                    if (dp[j] == true) {
-                        // 当前重量可达，尝试加我
-                        if (costs[i] + j <= V) {
-                            dp[j + costs[i]] = true;
-                        }
-                    } else {
+                // 错误写法：因为只有一个数组来记录上一层次的状态，那么修改后需要考虑是否影响了当前状态的计算，正确写法是从后向前处理，这样可以避免读取新状态的值
+//                for (int j = 0; j < V; j++) {
+//
+//                    if (dp[j] == true) {
+//                        // 当前重量可达，尝试加我
+//                        if (costs[i] + j <= V) {
+//                            dp[j + costs[i]] = true;
+//                        }
+//                    } else {
+//                        // 如果dp[j] == false, 说明这个前i个商品所有可能的情况没有j，那么可以判断 j - cost[i] 有没有可能，有的话加我就可以了
+//                        if (j - costs[i] >= 0 && dp[j - costs[i]]) {
+//                            dp[j] = true;
+//                        }
+//                    }
+//
+//                }
+                for (int j = V; j > 0; j--) {
+                    // 如果这个重量达到了，那么不管
+                    // 如果这个重量不可达，尝试去满足这个重量，记住，只能修改 dp[j]，不要修改之前的值
+                    if (dp[j] == false) {
                         // 如果dp[j] == false, 说明这个前i个商品所有可能的情况没有j，那么可以判断 j - cost[i] 有没有可能，有的话加我就可以了
                         if (j - costs[i] >= 0 && dp[j - costs[i]]) {
                             dp[j] = true;
                         }
+                    } else {
+                        // 当dp[j]为true的时候，说明该重量在上一个状态集就满足了，等价与下面这种
+                        dp[j] = dp[j];
                     }
-
                 }
             }
-            for (int i = V; i >= 0; i--) {
+            for (int i = V; i > 0; i--) {
                 if (dp[i] == true) {
                     return i;
                 }
