@@ -33,7 +33,7 @@ public class O1BackPack {
         int[] costs = {2,2,4,6,3};
         int[] weights = {2,2,4,6,3};
         Solution solution = new Solution();
-        System.out.println(solution.maxValue(costs, weights, 9));
+        System.out.println(solution.maxValue0(costs, weights, 9));
 
     }
 
@@ -82,6 +82,37 @@ public class O1BackPack {
             }
             return Arrays.stream(dp).max().getAsInt();
         }
+
+
+        /**
+         *
+         * 优化遍历次数
+         *
+         * @param costs 物品要花费的重量 要求必须大于0
+         * @param weights 物品价值 要求必须大于0
+         * @param V 背包最大容量
+         * @return 最大价值
+         */
+        public int maxValue0(int[] costs, int[] weights, int V) {
+
+            // 如果用状态来表示背包的话有三个变量 【前i个物品，当前重量，当前价值】
+
+            // dp[i]代表重量为V的背包所能存储的最大价值，该数组表示的是某一阶段的状态，
+            int[] dp = new int[V + 1];
+            // dp = 0 表示该重量限制不可达
+            dp[0] = 0;
+            // 逐步放入商品
+            for(int i = 0; i < costs.length; i++) {
+                // 处理这一阶段所能达到的重量枚举，并计算在该重量下的最大价值，cost[i]之前的重量状态不用去枚举 1. 放不进去 2.不放的话值不用变
+                for(int j = V; j >= costs[i]; j--) {
+                    // 如果不可达，那么取 dp[j - costs[i]] + weights[i], 如果可达，那么取 Math.max(dp[j], dp[j - costs[i]] + weights[i])
+                    dp[j] = Math.max(dp[j], dp[j - costs[i]] + weights[i]);
+
+                }
+            }
+            return Arrays.stream(dp).max().getAsInt();
+        }
+
     }
 }
 
