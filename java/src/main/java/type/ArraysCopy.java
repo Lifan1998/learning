@@ -16,7 +16,23 @@ public class ArraysCopy {
 //        testArrayClone();
 //        testArrayClone0();
 //        testArrayClone1();
-        testArrayClone2();
+        //testArrayClone2();
+
+        int[] arr = new int[]{1,2,3,4};
+        testUpdateValue(arr);
+        System.out.println(arr[0]);
+
+    }
+
+    /***
+     * 更新数组的值，会影响原数组
+     * @param arr
+     * @return
+     */
+    public static int[] testUpdateValue(int[] arr) {
+        int[] arr_ = arr.clone();
+        arr_[0] = 999;
+        return arr;
     }
 
 
